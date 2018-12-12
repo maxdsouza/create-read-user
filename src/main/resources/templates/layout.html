@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/style.css"/>
+
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" th:href="@{/}">Basic User System</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"
+						th:classappend="${#httpServletRequest.getRequestURI().startsWith('/register') ? 'active':''}">
+						<a class="nav-link" th:href="@{/register-user}">Cadastrar Usuário<span
+							class="sr-only">(current)</span>
+					</a>
+					</li>
+					<li class="nav-item"
+						th:classappend="${#httpServletRequest.getRequestURI().startsWith('/list') ? 'active':''}">
+						<a class="nav-link" th:href="@{/list-users}">Listar Usuários</a>
+						<span
+							class="sr-only">(current)</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/popper.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/script.js"></script>
+	
+	<div class="container">
+		<div layout:fragment="content"></div>
+	</div>
+</body>
+</html>

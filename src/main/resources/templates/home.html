@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+
+<title>Basic User System</title>
+
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<div class="container mt-3">
+			<h2>
+				<b>Basic User System</b>
+			</h2>
+			<h3>Seja Bem Vindo!</h3>
+
+			<div class="mt-5"></div>
+
+			<h6>
+				Para cadastrar um usuário, <a th:href="@{/register-user}">clique
+					aqui</a> ou clique no link "Cadastrar Usuário" logo acima
+			</h6>
+			<h6>
+				Para visualizar os usuários cadastrados, <a th:href="@{/list-users}">clique
+					aqui</a> ou clique no link "Listar Usuários" logo acima
+			</h6>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+
+<head>
+
+<title>Cadastrar Usuário</title>
+
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<div class="container mt-3">
+			
+			<form th:action="@{/register-user/save}" th:object="${userdto}"
+				method="post">
+				<div class="alert alert-secondary form-group col-md-4" role="alert">
+					Obs.: A senha digitada será encriptada!</div>
+				<div class="form-group col-md-4">
+					<label for="inputName">Nome</label> <input type="text"
+						class="form-control" id="inputName" th:field="*{name}" autofocus/> <span
+						th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+						class="badge badge-danger"></span>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputEmail">E-mail</label> <input type="text"
+						class="form-control" id="inputEmail" th:field="*{email}" /> <span
+						th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+						class="badge badge-danger"></span>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputPassword">Senha</label> <input type="password"
+						class="form-control" id="inputPassword" th:field="*{password}" /> <span
+						th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+						class="badge badge-danger"></span>
+				</div>
+				<div class="form-group col-md-4">
+					<a th:href="@{/}" class="btn btn-secondary">Cancelar</a>
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
